@@ -1,6 +1,11 @@
 FROM python:3.11-slim
 
-WORKDIR /practise
+WORKDIR /app
 
-COPY README.md .
+RUN useradd -m appuser
 
+COPY . .
+
+USER appuser
+
+CMD ["python", "app.py"]
